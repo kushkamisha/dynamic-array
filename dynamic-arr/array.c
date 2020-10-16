@@ -8,7 +8,9 @@
 
 #include "array.h"
 
-void push(node **head, int data)
+node *head = NULL;
+
+void __push(node **head, int data)
 {
     node *node = malloc(sizeof(node));
     node->data = data;
@@ -26,7 +28,7 @@ void push(node **head, int data)
     }
 }
 
-int pop(node **head)
+int __pop(node **head)
 {
     if (*head == NULL) return 0;
 
@@ -46,7 +48,7 @@ int pop(node **head)
     return value;
 }
 
-void print(node *head)
+void __print(node* head)
 {
     while(head != NULL) {
         printf("%d ", head->data);
@@ -55,7 +57,7 @@ void print(node *head)
     printf("\n");
 }
 
-bool isInArray(node *head, int value) {
+bool __isInArray(node* head, int value) {
     node *curr = head;
 
     while (curr != NULL) {
@@ -66,7 +68,7 @@ bool isInArray(node *head, int value) {
     return false;
 }
 
-unsigned int length(node *head) {
+unsigned int __length(node *head) {
     node *curr = head;
     unsigned int length = 0;
 
@@ -78,13 +80,14 @@ unsigned int length(node *head) {
     return length;
 }
 
-unsigned int foo(int val) {
-    return val;
-}
+void push(int data) { __push(&head, data); }
+int pop() { return __pop(&head); }
+bool isInArray(int value) { return __isInArray(head, value); }
+void print() { __print(head); }
+unsigned int length() { return __length(head); }
 
 array Array() {
     array this;
-//    node *head = NULL;
     this.push = &push;
     this.pop = &pop;
     this.print = &print;

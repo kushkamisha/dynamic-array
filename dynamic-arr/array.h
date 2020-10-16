@@ -23,27 +23,20 @@ typedef struct node node;
 
 struct array
 {
-    node *head;
-    void (*push)(node**, int);
-    int (*pop)(node**);
-    void (*print)(node*);
-    bool (*isInArray)(node*, int);
-    unsigned int (*length)(node*);
+    void (*push)(int);
+    int (*pop)(void);
+    void (*print)(void);
+    bool (*isInArray)(int);
+    unsigned int (*length)(void);
 };
 typedef struct array array;
 
-unsigned int foo(int val);
-
 array Array(void);
 
-void push(node **head, int data);
-
-int pop(node **head);
-
-void print(node *head);
-
-bool isInArray(node *head, int value);
-
-unsigned int length(node *head);
+void push(int);
+int pop(void);
+void print(void);
+bool isInArray(int);
+unsigned int length(void);
 
 #endif /* array_h */

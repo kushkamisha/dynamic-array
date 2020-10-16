@@ -10,24 +10,24 @@
 int main(int argc, const char * argv[]) {
     
     array arr = Array();
-    node *head = NULL;
 
-    printf("The length of the array is %d\n", arr.length(head));
+    printf("The length of the array is %d\n", arr.length());
 
-    arr.push(&head, 9);
-    arr.push(&head, 5);
-    arr.push(&head, 3);
+    arr.push(9);
+    arr.push(5);
+    arr.push(3);
 
-    printf("The length of the array is %d\n", arr.length(head));
+    printf("The length of the array is %d\n", arr.length());
 
-    arr.print(head);
-    printf("Is '3' in array? %s\n", arr.isInArray(head, 3) ? "yes" : "no");
+    arr.print();
+    printf("Is '3' in array? %s\n", arr.isInArray(3) ? "yes" : "no");
+    printf("Is '8' in array? %s\n", arr.isInArray(8) ? "yes" : "no");
 
-    printf("Pop: %d\n", arr.pop(&head));
-    arr.print(head);
-    printf("Pop: %d\n", arr.pop(&head));
-    printf("Pop: %d\n", arr.pop(&head));
-    arr.print(head);
+    printf("Pop: %d\n", arr.pop());
+    arr.print();
+    printf("Pop: %d\n", arr.pop());
+    printf("Pop: %d\n", arr.pop());
+    arr.print();
 
     return 0;
 }
