@@ -8,6 +8,13 @@
 
 #include "array.h"
 
+struct node
+{
+    int data;
+    struct node* next;
+};
+typedef struct node node;
+
 node *head = NULL;
 
 void __push(node **head, int data)
@@ -40,7 +47,7 @@ int __pop(node **head)
     }
     node *curr = *head;
 
-    // Do to the penultimate element of array
+    // Go to the penultimate element of array
     while (curr->next->next != NULL) curr = curr->next;
 
     value = curr->next->data;
@@ -80,18 +87,36 @@ unsigned int __length(node *head) {
     return length;
 }
 
+int __get(node *head, int index) {
+    node *curr = head;
+    int i = 0;
+
+    while (curr != NULL) {
+        if (i == index) return curr->data;
+        curr = curr->next;
+        i++;
+    }
+
+    return 0;
+}
+
+// Wrappers
 void push(int data) { __push(&head, data); }
 int pop() { return __pop(&head); }
 bool isInArray(int value) { return __isInArray(head, value); }
 void print() { __print(head); }
 unsigned int length() { return __length(head); }
+int get(int index) { return __get(head, index); }
 
 array Array() {
     array this;
+
     this.push = &push;
     this.pop = &pop;
     this.print = &print;
     this.isInArray = &isInArray;
     this.length = &length;
+    this.get = &get;
+
     return this;
 }

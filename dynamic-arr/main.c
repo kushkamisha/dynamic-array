@@ -20,11 +20,18 @@ int main(int argc, const char * argv[]) {
     printf("The length of the array is %d\n", arr.length());
 
     arr.print();
+    
     printf("Is '3' in array? %s\n", arr.isInArray(3) ? "yes" : "no");
     printf("Is '8' in array? %s\n", arr.isInArray(8) ? "yes" : "no");
 
     printf("Pop: %d\n", arr.pop());
-    arr.print();
+
+    printf("The length of the array is %d\n", arr.length());
+    for (int i = 0; i < arr.length(); i++) {
+        printf("%d, ", arr.get(i));
+    }
+    printf("\n");
+    
     printf("Pop: %d\n", arr.pop());
     printf("Pop: %d\n", arr.pop());
     arr.print();

@@ -14,13 +14,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-struct node
-{
-    int data;
-    struct node* next;
-};
-typedef struct node node;
-
 struct array
 {
     void (*push)(int);
@@ -28,6 +21,7 @@ struct array
     void (*print)(void);
     bool (*isInArray)(int);
     unsigned int (*length)(void);
+    int (*get)(int);
 };
 typedef struct array array;
 
@@ -38,5 +32,6 @@ int pop(void);
 void print(void);
 bool isInArray(int);
 unsigned int length(void);
+int get(int);
 
 #endif /* array_h */
